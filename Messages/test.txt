@@ -1,0 +1,12 @@
+[
+    {
+        "name" : "Test!",
+        "text" : "This is some testing text to ensure that all goes well when displaying text!",
+        "skip" : 0
+    },
+    {
+        "name" : "Test2!",
+        "text" : "This is some more text, this one can be skipped; however,\n try it out and make sure it works :)",
+        "skip" : 1
+    }
+]

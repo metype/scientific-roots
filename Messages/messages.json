@@ -1,0 +1,667 @@
+{
+    "test": [
+        {
+            "name" : "Test!",
+            "text" : "This is some testing text to ensure that all goes well when displaying text!",
+            "skip" : 0
+        },
+        {
+            "name" : "Test2!",
+            "text" : "This is some more text, this one can be skipped; however,\n try it out and make sure it works :)",
+            "skip" : 1
+        }
+    ],
+    "equip_item": [
+        {
+            "name" : "Game",
+            "text" : "You equipped the {item}.",
+            "skip" : 1
+        }
+    ],
+    "recieve_item": [
+        {
+            "name" : "Game",
+            "text" : "Recieved item {item}.",
+            "skip" : 1
+        }
+    ],
+    "missing": [
+        {
+            "name" : "Game",
+            "text" : "Message referenced, but none found :(",
+            "skip" : 0
+        }
+    ],
+    "whiteboard_puzzle1": [
+        {
+            "name" : "Whiteboard",
+            "text" : "Chemical of the Day!\n          BeH3O",
+            "skip" : 1
+        }
+    ],
+    "periodic_table": [
+        {
+            "name" : "Periodic Table",
+            "text" : "It's the Periodic Table of the Elements.",
+            "skip" : 1
+        },
+        {
+            "name" : "Periodic Table",
+            "text" : "[image]periodic_table",
+            "skip" : 1
+        }
+    ],
+    "puzzle1_door": [
+        {
+            "name" : "Door",
+            "text" : "The door is locked, but there's a keypad here to input numbers on",
+            "skip" : 1
+        },
+        {
+            "name" : "Door",
+            "text" : "[input]puzzle1_door",
+            "skip" : 1
+        }
+    ],
+    "puzzle1_door_success": [
+        {
+            "name" : "Door",
+            "text" : "You hear a loud click and a beep as the door unlocks",
+            "skip" : 1
+        }
+    ],
+    "puzzle1_door_failure": [
+        {
+            "name" : "Door",
+            "text" : "You hear a failure beep from the keypad as nothing happens.\nThat must be the wrong code.",
+            "skip" : 1
+        }
+    ],
+    "puzzle2_note": [
+        {
+            "name" : "Note",
+            "text" : "I can't believe our work has been so successful!\nMy one concern is it's been slightly too successful, we'll need to find a way\nto keep the ginger under control. I've found that pouring bleach on them\ndoes make them shrivel a bit, it's a start",
+            "skip" : 1
+        }
+    ],
+    "get_bleach": [
+        {
+            "name" : "Drawer",
+            "text" : "You open the drawer and find a bottle of bleach inside.\nHow convienient.",
+            "skip" : 1
+        }
+    ],
+    "ginger_weird": [
+        {
+            "name" : "Drake",
+            "text" : "Is that... ginger?\nWhatever it is it's in my way.",
+            "skip" : 1
+        }
+    ],
+    "ginger_failed": [
+        {
+            "name" : "Drake",
+            "text" : "That... did nothing, back to the drawing board",
+            "skip" : 1
+        }
+    ],
+    "ginger_broken_down": [
+        {
+            "name" : "Drake",
+            "text" : "Woah! That's really effective, now I can get through here",
+            "skip" : 1
+        }
+    ],
+    "fire_axe": [
+        {
+            "name" : "Drake",
+            "text" : "Looks like there used to be a fire axe in here",
+            "skip" : 1
+        }
+    ],
+    "tree_comment": [
+        {
+            "name" : "Drake",
+            "text" : "Maybe I can get some wood to cover the gap from this?",
+            "skip" : 1
+        }
+    ],
+    "tree_failure": [
+        {
+            "name" : "Drake",
+            "text" : "I don't think this will help.",
+            "skip" : 1
+        }
+    ],
+    "tree_success": [
+        {
+            "name" : "Game",
+            "text" : "You managed to chop off two decent planks of wood, going for the third\nyou swung too hard, accidentally throwing your axe into the pit.",
+            "skip" : 1
+        }
+    ],
+    "planks_comment": [
+        {
+            "name" : "Drake",
+            "text" : "Maybe I can put something across this gap?",
+            "skip" : 1
+        }
+    ],
+    "planks_failed": [
+        {
+            "name" : "Drake",
+            "text" : "That's not going to help me out.",
+            "skip" : 1
+        }
+    ],
+    "planks_success": [
+        {
+            "name" : "Drake",
+            "text" : "Nice! They're long enough, now here's hoping they'll hold me",
+            "skip" : 1
+        }
+    ],
+    "bulletin_board1": [
+        {
+            "name" : "Board",
+            "text" : "Memo : Please stop hiding your sensitive lock codes in little \"puzzles\".\nIt's not funny, and It's a security risk.",
+            "skip" : 1
+        }
+    ],
+    "microwave1": [
+        {
+            "name" : "Drake",
+            "text" : "A Microwave; someone didn't reset the timer, though.\nIt's still set at 2:47",
+            "skip" : 1
+        }
+    ],
+    "locker_room_door": [
+        {
+            "name" : "Door",
+            "text" : "The door is locked, but there's a keypad here to input numbers on",
+            "skip" : 1
+        },
+        {
+            "name" : "Door",
+            "text" : "[input]locker_room_door",
+            "skip" : 1
+        }
+    ],
+    "locker_room_door_success": [
+        {
+            "name" : "Door",
+            "text" : "You hear a loud click and a beep as the door unlocks",
+            "skip" : 1
+        }
+    ],
+    "locker_room_door_failure": [
+        {
+            "name" : "Door",
+            "text" : "You hear a failure beep from the keypad as nothing happens.\nThat must be the wrong code.",
+            "skip" : 1
+        }
+    ],
+    "head_office_door_comment": [
+        {
+            "name" : "Drake",
+            "text" : "The door is locked, this handle looks weak though, heh,\nI could probably melt it!",
+            "skip" : 1
+        }
+    ],
+    "head_office_door_success": [
+        {
+            "name" : "Door",
+            "text" : "You pour the scalding coffee onto the door knob, and, to your suprise:\nIt melts right off, the door opens.",
+            "skip" : 1
+        }
+    ],
+    "head_office_door_failure": [
+        {
+            "name" : "Drake",
+            "text" : "This isn't going to help break the door knob",
+            "skip" : 1
+        }
+    ],
+    "sector_b_door_comment": [
+        {
+            "name" : "Drake",
+            "text" : "This door is labeled \"Sector B\". I need a keycard to get in here.",
+            "skip" : 1
+        }
+    ],
+    "sector_b_door_failure": [
+        {
+            "name" : "Door",
+            "text" : "Unfortunately, this item will not work, as it does not fit in the reader.",
+            "skip" : 1
+        }
+    ],
+    "sector_b_door_success": [
+        {
+            "name" : "Door",
+            "text" : "Swiping the keycard in the reader unlocks and opens the door.",
+            "skip" : 1
+        }
+    ],
+    "sector_a_door_comment": [
+        {
+            "name" : "Drake",
+            "text" : "This door is labeled \"Sector A\". I need a keycard to get in here.",
+            "skip" : 1
+        }
+    ],
+    "sector_a_door_failure": [
+        {
+            "name" : "Door",
+            "text" : "Unfortunately, this item will not work, as it does not fit in the reader.",
+            "skip" : 1
+        }
+    ],
+    "sector_a_door_success": [
+        {
+            "name" : "Door",
+            "text" : "Swiping the keycard in the reader unlocks and opens the door.",
+            "skip" : 1
+        }
+    ],
+    "cabinet1_comment": [
+        {
+            "name" : "Drake",
+            "text" : "The drawer seems locked, there must be a key around here somewhere",
+            "skip" : 1
+        }
+    ],
+    "cabinet1_failure": [
+        {
+            "name" : "Drawer",
+            "text" : "This item is not the key",
+            "skip" : 1
+        }
+    ],
+    "cabinet1_success": [
+        {
+            "name" : "Drawer",
+            "text" : "You insert the key into the hole and hear a click as you\nturn it, letting you open the drawer.",
+            "skip" : 1
+        }
+    ],
+    "rusty_key_note": [
+        {
+            "name" : "Note",
+            "text" : "I'm leaving the key here since someone locked up the Lab again.\nPlease remember, someone, to put this in the vat of vinegar back there.\nI can't get my coffee without the thing being clean, the lock's too tight",
+            "skip" : 1
+        }
+    ],
+    "break_room_door_comment": [
+        {
+            "name" : "Drake",
+            "text" : "The door to the break room, it's locked though, I'll have to get the key.",
+            "skip" : 1
+        }
+    ],
+    "break_room_door_failure": [
+        {
+            "name" : "Door",
+            "text" : "This thing won't fit in the keyhole",
+            "skip" : 1
+        }
+    ],
+    "break_room_door_success": [
+        {
+            "name" : "Door",
+            "text" : "You insert the key into the hole and hear a click as you\nturn it, letting you open the door.",
+            "skip" : 1
+        }
+    ],
+    "guard_door_comment": [
+        {
+            "name" : "Drake",
+            "text" : "This leads to the guard point for the Lab, if\nI get in there I may be able to open the doors!",
+            "skip" : 1
+        }
+    ],
+    "guard_door_failure": [
+        {
+            "name" : "Door",
+            "text" : "This is not the correct keycard",
+            "skip" : 1
+        }
+    ],
+    "guard_door_success": [
+        {
+            "name" : "Door",
+            "text" : "Swiping the card sucessfully presents a cheery beeping\nnoise followed by the door opening.",
+            "skip" : 1
+        }
+    ],
+    "vinegar_comment": [
+        {
+            "name" : "Drake",
+            "text" : "That is a large vat of vinegar, there's a lable on the side that reads:\n\"NOT FOR HUMAN CONSUMPTION\"",
+            "skip" : 1
+        }
+    ],
+    "vinegar_failure": [
+        {
+            "name" : "Drake",
+            "text" : "I don't see how dipping this in vinegar could possibly help.",
+            "skip" : 1
+        }
+    ],
+    "vinegar_success": [
+        {
+            "name" : "Vinegar",
+            "text" : "You dip the rusty key in, removing the rust. It comes out golden again.\n(We're ignoring the fact that it's iron that rusts, okay?)",
+            "skip" : 1
+        }
+    ],
+    "vinegar_door": [
+        {
+            "name" : "Door",
+            "text" : "The door is locked, but there's a keypad here to input numbers on",
+            "skip" : 1
+        },
+        {
+            "name" : "Door",
+            "text" : "[input]vinegar_door",
+            "skip" : 1
+        }
+    ],
+    "vinegar_door_success": [
+        {
+            "name" : "Door",
+            "text" : "The door makes a good sounding kind of beep before opening.",
+            "skip" : 1
+        }
+    ],
+    "vinegar_door_failure":[
+        {
+            "name" : "Door",
+            "text" : "The door makes a bad sounding kind of beep before not opening.",
+            "skip" : 1
+        }
+    ],
+    "note_hint_1": [
+        {
+            "name" : "Note",
+            "text" : "The first digit is a 3.",
+            "skip" : 1
+        }
+    ],
+    "note_hint_2": [
+        {
+            "name" : "Drawer",
+            "text" : "You notice there's a note in this drawer.",
+            "skip" : 1
+        },
+        {
+            "name" : "Note",
+            "text" : "I feel like these notes clearly violate the security memo.\nAnyways, second digit is double 4",
+            "skip" : 1
+        }
+    ],
+    "note_hint_3": [
+        {
+            "name" : "Note",
+            "text" : "Why was I asked to write this?\nDigit three is the same as digit one",
+            "skip" : 1
+        }
+    ],
+    "note_hint_4": [
+        {
+            "name" : "Note",
+            "text" : "Exclusively Ron thought this was a good idea.\nDigit four is a 1",
+            "skip" : 1
+        }
+    ],
+    "note_hint_5": [
+        {
+            "name" : "Board",
+            "text" : "There's a note pinned to the board.",
+            "skip" : 1
+        },
+        {
+            "name" : "Note",
+            "text" : "I think this is a lovely idea, to hell with Security!.\nDigit five is 0\n\n   -Signed Ron",
+            "skip" : 1
+        }
+    ],
+    "make_coffee": [
+        {
+            "name" : "Coffee",
+            "text" : "You use the coffee machine to make a very hot cup of coffee.",
+            "skip" : 1
+        }
+    ],
+    "stuck_door": [
+        {
+            "name" : "Door",
+            "text" : "This door appears to be firmly stuck in place.",
+            "skip" : 1
+        }
+    ],
+    "bleach_directions": [
+        {
+            "name" : "Note",
+            "text" : "We have simplified the process of making bleach.\nTake equal parts of all A-D Chemicals and place\nThem inside the Bleachinator Machine\nIn the back of our clean room.\n\nOh! This weeks clean room pin is 1 after time",
+            "skip" : 1
+        }
+    ],
+    "clean_room_door": [
+        {
+            "name" : "Door",
+            "text" : "The door is locked, but there's a keypad here to input numbers on",
+            "skip" : 1
+        },
+        {
+            "name" : "Door",
+            "text" : "[input]clean_room_door",
+            "skip" : 1
+        }
+    ],
+    "clean_room_door_success": [
+        {
+            "name" : "Door",
+            "text" : "The door makes a good sounding kind of beep before opening.",
+            "skip" : 1
+        }
+    ],
+    "clean_room_door_failure":[
+        {
+            "name" : "Door",
+            "text" : "The door makes a bad sounding kind of beep before not opening.",
+            "skip" : 1
+        }
+    ],
+    "chem_a_locker":
+    [
+        {
+            "name" : "Locker",
+            "text" : "You swing open the doors of the locker,\nfinding several jars labeled \"Chemical A\"\n\nYou take one.",
+            "skip" : 1
+        }
+    ],
+    "knife_locker":
+    [
+        {
+            "name" : "Locker",
+            "text" : "This locker is mostly empty save for a knife",
+            "skip" : 1
+        }
+    ],
+    "box1_comment":
+    [
+        {
+            "name" : "Drake",
+            "text" : "A package? Shaking it around I can hear something\nheavy inside; though maybe I should stop\nshaking packages in chemical storage",
+            "skip" : 1
+        }
+    ],
+    "box1_failure":
+    [
+        {
+            "name" : "Drake",
+            "text" : "I can't see how this item can help me here.",
+            "skip" : 1
+        }
+    ],
+    "box1_success":
+    [
+        {
+            "name" : "Box",
+            "text" : "You cut the box open to reveal a hammer and absolute\nloads of packing materials",
+            "skip" : 1
+        }
+    ],
+    "chem_b_locker_comment":
+    [
+        {
+            "name" : "Drake",
+            "text" : "It's...? Welded shut, I'll need to smash it\nto even try to open it.",
+            "skip" : 1
+        }
+    ],
+    "chem_b_locker_failure":
+    [
+        {
+            "name" : "Drake",
+            "text" : "This item really won't help me open the locker.",
+            "skip" : 1
+        }
+    ],
+    "chem_b_locker_success":
+    [
+        {
+            "name" : "Locker",
+            "text" : "Hitting the weld a few times with the hammer worked\nfreeing it enough to open up and reveal several jars\nof Chemical B.",
+            "skip" : 1
+        }
+    ],
+    "read_clock":
+    [
+        {
+            "name" : "Drake",
+            "text" : "Looks broken, it's stuck at 5:06.",
+            "skip" : 1
+        }
+    ],
+    "chem_room_door": [
+        {
+            "name" : "Door",
+            "text" : "The door is locked, but there's a keypad here to input numbers on",
+            "skip" : 1
+        },
+        {
+            "name" : "Door",
+            "text" : "[input]chem_room_door",
+            "skip" : 1
+        }
+    ],
+    "chem_room_door_failure": [
+        {
+            "name" : "Door",
+            "text" : "The door buzzes an obnoxious tone before doing nothing.",
+            "skip" : 1
+        }
+    ],
+    "chem_room_door_success": [
+        {
+            "name" : "Door",
+            "text" : "The door buzzes a nice tone before opening.",
+            "skip" : 1
+        }
+    ],
+    "chem_puzzle_note":
+    [
+        {
+            "name" : "Note",
+            "text" : "This note has clearly been redone serveral times based on\nthe scratched out text.\n\nIt now just reads \"B3HN\"",
+            "skip" : 1
+        }
+    ],
+    "safe_comment":
+    [
+        {
+            "name" : "Drake",
+            "text" : "It appears to be a safe.",
+            "skip" : 1
+        }
+    ],
+    "safe_failure":
+    [
+        {
+            "name" : "Drake",
+            "text" : "This item can't get me into the safe.",
+            "skip" : 1
+        }
+    ],
+    "safe_success":
+    [
+        {
+            "name" : "Safe",
+            "text" : "Pouring some corrosive on the hinges made them weak enough to give.\n\nAnd there were some jars of Chemical D in here!",
+            "skip" : 1
+        }
+    ],
+    "bleachinator_comment":
+    [
+        {
+            "name" : "Safe",
+            "text" : "\"The Bleachinator\"? I Guess this is where I'll have to put\nmy chemicals.",
+            "skip" : 1
+        }
+    ],
+    "bleachinator_failure":
+    [
+        {
+            "name" : "Safe",
+            "text" : "I don't think putting this item in there\nis a good idea.",
+            "skip" : 1
+        }
+    ],
+    "bleachinator_success":
+    [
+        {
+            "name" : "Safe",
+            "text" : "{comment}",
+            "skip" : 1
+        }
+    ],
+    "bulletin_sector_c":
+    [
+        {
+            "name" : "Board",
+            "text" : "<----- Danger   |   Not Danger ----->",
+            "skip" : 1
+        }
+    ],
+    "end_note":
+    [
+        {
+            "name" : "Note",
+            "text" : "To Whom it May Concern:\n\n   It would be in your greatest interest, seeing\nas you are reading this note, to run.\n\n                           - Sincerely, Dr. Steinfurth",
+            "skip" : 1
+        },
+        {
+            "name" : "Note",
+            "text" : "[end]",
+            "skip" : 1
+        }
+    ],
+    "tutorial_door_comment":
+    [
+        {
+            "name" : "Door",
+            "text" : "This is a door, it requires a keycard so open your inventory\n[TAB] and double click the keycard you picked up.\nThen interact with this door again.",
+            "skip" : 1
+        }
+    ],
+    "tutorial_door_success":
+    [
+        {
+            "name" : "Door",
+            "text" : "The keycard opened the door with its mere presence...\n\ninside the card reader.",
+            "skip" : 1
+        }
+    ]
+}
