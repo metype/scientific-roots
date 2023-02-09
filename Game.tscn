@@ -31,7 +31,7 @@ playerPath = NodePath("../Player")
 position = Vector2( -401, -301 )
 camera = NodePath("../Player/Camera2D")
 
-[connection signal="load_ready" from="Player" to="." method="_on_Player_load_ready"]
+[connection signal="fade_black" from="Player" to="." method="_on_Player_fade_black"]
 [connection signal="end" from="MessageBoxHandler/MessageBox" to="." method="_on_MessageBox_end"]
 [connection signal="input_tried" from="MessageBoxHandler/MessageBox" to="." method="_on_MessageBox_input_tried"]
 [connection signal="item_selected" from="Inventory" to="Player" method="select_item"]

@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-export (int)var movement_speed = 24
-export (int)var movement_delay = 70
+export (int) var movement_speed = 24
+export (int) var movement_delay = 70
+export (float) var fade_speed = 1.5
 
 onready var InteractToolTip = $InteractTooltip
 onready var player_sprite = $AnimatedSprite
@@ -23,53 +24,21 @@ var can_move = true
 
 var interactObject : Node2D = null
 
-signal load_ready
+signal fade_black
+signal fade_done
 
-var invData : Dictionary = {
- "axe" : 0,
- "bleach" : 1,
- "planks" : 2,
- "sector_b_keycard" : 3,
- "cabinet_key" : 4,
- "rusty_key" : 5,
- "guard_key" : 6,
- "break_room_key" : 7,
- "coffee" : 8,
- "sector_a_keycard" : 9,
- "chem_a" : 10,
- "chem_b" : 11,
- "chem_c" : 12,
- "chem_d" : 13,
- "knife": 14,
- "hammer": 15,
- "corrosive": 16
-}
-
-var nameData : Dictionary = {
- "axe" : "Axe",
- "bleach" : "Bleach",
- "planks" : "Planks",
- "sector_b_keycard" : "Sector B Keycard",
- "cabinet_key" : "Golden Key",
- "rusty_key" : "Rusted Key",
- "guard_key" : "Sector B Lab Keycard",
- "break_room_key" : "Golden Key",
- "coffee" : "Hot Coffee",
- "sector_a_keycard" : "Sector A Keycard",
- "chem_a" : "Chemical A",
- "chem_b" : "Chemical B",
- "chem_c" : "Chemical C",
- "chem_d" : "Chemical D",
- "knife": "Knife",
- "hammer": "Hammer",
- "corrosive": "Corrosive"
-}
+var item_name_data : Dictionary 
+var item_index_data : Dictionary 
 
 var inventory : Array = []
 
 var inv_button_held = false
 var inventory_open = false
 var selected_item : String
+
+func init(item_name_data : Dictionary, item_index_data : Dictionary):
+	self.item_name_data = item_name_data
+	self.item_index_data = item_index_data
 
 func _process(delta):
 	fade_rect.color.a = fade_amount
@@ -79,19 +48,20 @@ func _process(delta):
 		InteractToolTip.visible = false
 		
 	if(fading_in):
-		fade_amount += 0.02
+		fade_amount += delta * fade_speed
 		if(fade_amount >= 1):
-			emit_signal("load_ready")
+			emit_signal("fade_black")
 			fading_in = false
 			fading_out = true
 	if(fading_out):
-		fade_amount -= 0.02
+		fade_amount -= delta * fade_speed
 		if(fade_amount <= 0):
 			fading_in = false
 			fading_out = false
 			can_move = true
+			emit_signal("fade_done")
 			
-func level_transition():
+func start_fade():
 	fading_in = true
 	fading_out = false
 	can_move = false
@@ -114,7 +84,7 @@ func set_move_state(can : bool):
 
 func _physics_process(delta):
 	if(selected_item != "" and selected_item != null):
-		equipped_label.text = "Equipped " + nameData[selected_item]
+		equipped_label.text = "Equipped " + item_name_data[selected_item]
 		equipped_label.visible = true
 		equipped_rect.visible = true
 	else:
@@ -127,9 +97,9 @@ func _physics_process(delta):
 			get_node("../Inventory").active = false
 			inventory_open = false
 		else:
-			var items : PoolIntArray
+			var items : PoolStringArray
 			for i in range(inventory.size()):
-				items.append(invData[inventory[i]])
+				items.append(inventory[i])
 			get_node("../Inventory").current_items = items
 			get_node("../Inventory").show()
 			inventory_open = true
@@ -185,7 +155,7 @@ func _show_message(path : String, format_dict = {}):
 	get_node("../MessageBoxHandler").display_message(path, format_dict)
 			  
 func _give_item(id : String):
-	_show_message("recieve_item", {"item": nameData[id]})
+	_show_message("recieve_item", {"item": item_name_data[id]})
 	inventory.append(id)
 	
 func _remove_item(id : String):
@@ -197,5 +167,5 @@ func _deequip():
 func select_item(id):
 	if(inventory.size() > id):
 		selected_item = inventory[id]
-	_show_message("equip_item", {"item": nameData[selected_item]})
+	_show_message("equip_item", {"item": item_name_data[selected_item]})
 	inventory_open = false

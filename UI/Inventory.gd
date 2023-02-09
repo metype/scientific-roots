@@ -1,7 +1,7 @@
 extends Node2D
 
-export(Array, Texture) var images
-export(PoolIntArray) var current_items
+export (Array, Texture) var images
+export (PoolStringArray) var current_items
 export (NodePath) var camera
 
 onready var cameraPos : Node2D = get_node(camera)
@@ -9,6 +9,13 @@ onready var cameraPos : Node2D = get_node(camera)
 signal item_selected
 
 var active = false
+
+var item_name_data : Dictionary 
+var item_index_data : Dictionary 
+
+func init(item_name_data : Dictionary, item_index_data : Dictionary):
+	self.item_name_data = item_name_data
+	self.item_index_data = item_index_data
  
 func show():
 	active = true
@@ -18,7 +25,11 @@ func show():
 		if(i >= current_items.size()):
 			get_node("Item" + str(i+1)).texture = null
 		else:
-			get_node("Item" + str(i+1)).texture = images[current_items[i]]
+			var item_id = current_items[i]
+			var item_index_id = item_index_data[item_id]
+			var desired_texture = images[item_index_id]
+			get_node("Item" + str(i+1)).texture = desired_texture
+			get_node("Item" + str(i+1)).tooltip = item_name_data[item_id]
 		
 func _process(_delta):
 	if(not active):
@@ -27,56 +38,8 @@ func _process(_delta):
 		visible = true
 	global_position = cameraPos.global_position
 
-func _on_Item1_item_selected():
+func _on_item_selected(index):
 	if(not active):
 		return
 	active = false
-	emit_signal("item_selected", 0)
-
-func _on_Item2_item_selected():
-	if(not active):
-		return
-	active = false
-	emit_signal("item_selected", 1)
-
-func _on_Item3_item_selected():
-	if(not active):
-		return
-	active = false
-	emit_signal("item_selected", 2)
-
-func _on_Item4_item_selected():
-	if(not active):
-		return
-	active = false
-	emit_signal("item_selected", 3)
-
-func _on_Item5_item_selected():
-	if(not active):
-		return
-	active = false
-	emit_signal("item_selected", 4)
-
-func _on_Item6_item_selected():
-	if(not active):
-		return
-	active = false
-	emit_signal("item_selected", 5)
-
-func _on_Item7_item_selected():
-	if(not active):
-		return
-	active = false
-	emit_signal("item_selected", 6)
-
-func _on_Item8_item_selected():
-	if(not active):
-		return
-	active = false
-	emit_signal("item_selected", 7)
-
-func _on_Item9_item_selected():
-	if(not active):
-		return
-	active = false
-	emit_signal("item_selected", 8)
+	emit_signal("item_selected", index)
