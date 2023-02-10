@@ -9,7 +9,7 @@
 extents = Vector2( 118, 86.5 )
 
 [sub_resource type="RectangleShape2D" id=23]
-extents = Vector2( 24, 205.25 )
+extents = Vector2( 24, 204.375 )
 
 [sub_resource type="Gradient" id=26]
 interpolation_mode = 2
@@ -61,10 +61,10 @@ collision_mask = 0
 text_path = "puzzle1_door"
 
 [node name="Start" type="Node2D" parent="."]
-position = Vector2( 216, 864 )
+position = Vector2( 216, 992 )
 
 [node name="LevelEnd" type="Area2D" parent="."]
-position = Vector2( 832, 698 )
+position = Vector2( 799, 698 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd"]
 position = Vector2( -2, -3 )
@@ -73,8 +73,10 @@ shape = SubResource( 20 )
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 216, 1117.25 )
+position = Vector2( 216, 1116 )
 shape = SubResource( 23 )
+one_way_collision = true
+one_way_collision_margin = 10.0
 
 [node name="Abyss" type="TextureRect" parent="."]
 margin_left = 108.0

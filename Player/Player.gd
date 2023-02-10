@@ -6,7 +6,7 @@ export (int) var movement_delay = 70
 export (float) var fade_speed = 1.5
 
 onready var InteractToolTip = $InteractTooltip
-onready var player_sprite = $AnimatedSprite
+onready var player_sprite : AnimatedSprite = $AnimatedSprite
 onready var equipped_label = $ColorRect/Label
 onready var equipped_rect = $ColorRect
 onready var fade_rect : ColorRect = $ColorRect2
@@ -58,8 +58,8 @@ func _process(delta):
 		if(fade_amount <= 0):
 			fading_in = false
 			fading_out = false
-			clear_move_flag(Definitions.InCutscene)
 			emit_signal("fade_done")
+			clear_move_flag(Definitions.InCutscene)
 			
 func start_fade():
 	fading_in = true
@@ -67,12 +67,13 @@ func start_fade():
 	set_move_flag(Definitions.InCutscene)
 	
 	
-func move_in_direction(dir : Vector2, speed : int):
+func move_in_direction(dir : Vector2, speed : int, change_facing : bool = true):
 	if(OS.get_system_time_msecs() - last_moved <= movement_delay):
 		return
 	
-	facing_v = dir.x
-	facing_h = dir.y
+	if(change_facing):
+		facing_v = dir.x
+		facing_h = dir.y
 	
 	move_and_slide(dir * speed)
 		
@@ -87,6 +88,32 @@ func clear_move_flag(flag : int):
 	
 func move_flag_set(flag : int):
 	return (movement_flags & flag > 0)
+	
+func go_to_stand():
+	if facing_h == 1:
+		player_sprite.play("standing_back")
+	if facing_h == -1:
+		player_sprite.play("standing_forward")
+	if facing_v == 1:
+		player_sprite.play("standing_right")
+	if facing_v == -1:
+		player_sprite.play("standing_left")
+		
+func keep_moving():
+	if(facing_h == -1) :
+		player_sprite.play("walking_forward")
+		move_in_direction(Vector2(0, -1), movement_speed, false)
+	elif(facing_h == 1) :
+		player_sprite.play("walking_back")
+		move_in_direction(Vector2(0, 1), movement_speed, false)
+	elif(facing_v == -1) :
+		player_sprite.play("walking_left")
+		move_in_direction(Vector2(-1, 0), movement_speed, false)
+	elif(facing_v == 1) :
+		player_sprite.play("walking_right")
+		move_in_direction(Vector2(1, 0), movement_speed, false)
+	else:
+		go_to_stand()
 
 func _physics_process(delta):
 	if(selected_item != "" and selected_item != null):
@@ -97,7 +124,11 @@ func _physics_process(delta):
 		equipped_label.visible = false
 		equipped_rect.visible = false
 	equipped_rect.rect_size = equipped_label.rect_size + Vector2(10,10)
-	if(move_flag_set(Definitions.InCutscene | Definitions.MessageBox)):
+	if(move_flag_set(Definitions.InCutscene)):
+		keep_moving()
+		return
+	if(move_flag_set(Definitions.MessageBox)):
+		go_to_stand()
 		return
 	if(Input.get_action_strength("inventory") > 0 and not inv_button_held):
 		inv_button_held = true
@@ -116,6 +147,7 @@ func _physics_process(delta):
 		inv_button_held = false
 	
 	if(move_flag_set(Definitions.Inventory)):
+		go_to_stand()
 		return
 	if(Input.get_action_strength("up") > 0) :
 		player_sprite.play("walking_forward")
@@ -130,14 +162,7 @@ func _physics_process(delta):
 		player_sprite.play("walking_right")
 		move_in_direction(Vector2(1, 0), movement_speed)
 	else:
-		if facing_h == 1:
-			player_sprite.play("standing_back")
-		if facing_h == -1:
-			player_sprite.play("standing_forward")
-		if facing_v == 1:
-			player_sprite.play("standing_right")
-		if facing_v == -1:
-			player_sprite.play("standing_left")
+		go_to_stand()
 	
 	if(Input.get_action_strength("interact") > 0 and not interacted) :
 		interacted = true
