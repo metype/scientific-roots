@@ -23,10 +23,10 @@ func _ready():
 func _process(delta):
 	global_position = cameraPos.global_position
 	if(messageBox.active):
-		player.set_move_state(false)
+		player.set_move_flag(Definitions.MessageBox)
 		messageBox.visible = true
 	else:
-		player.set_move_state(true)
+		player.clear_move_flag(Definitions.MessageBox)
 		messageBox.visible = false
 		if(messageQueue.size() >= 2):
 			var message_path = messageQueue.pop_front()

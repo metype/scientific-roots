@@ -1,14 +1,14 @@
 [gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Media/lab.tres" type="TileSet" id=1]
-[ext_resource path="res://Levels/Level0.gd" type="Script" id=2]
+[ext_resource path="res://Media/Resources/lab.tres" type="TileSet" id=1]
+[ext_resource path="res://Levels/Level.gd" type="Script" id=2]
 [ext_resource path="res://Objects/Readable.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Media/wasd.png" type="Texture" id=5]
+[ext_resource path="res://Media/Decals/wasd.png" type="Texture" id=5]
 [ext_resource path="res://Objects/Getitem.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Media/sector_b_keycard.png" type="Texture" id=7]
-[ext_resource path="res://Media/tab_key.png" type="Texture" id=8]
+[ext_resource path="res://Media/Decals/sector_b_keycard.png" type="Texture" id=7]
+[ext_resource path="res://Media/Decals/tab_key.png" type="Texture" id=8]
 [ext_resource path="res://Objects/ItemDoor.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Media/Minecraft.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://Media/Resources/Minecraft.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 118, 86.5 )

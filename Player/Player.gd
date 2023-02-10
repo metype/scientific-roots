@@ -20,8 +20,6 @@ var facing_v : int
 var facing_h : int
 var interacted = false
 
-var can_move = true
-
 var interactObject : Node2D = null
 
 signal fade_black
@@ -33,8 +31,9 @@ var item_index_data : Dictionary
 var inventory : Array = []
 
 var inv_button_held = false
-var inventory_open = false
 var selected_item : String
+
+var movement_flags : int = 0b0000000
 
 func init(item_name_data : Dictionary, item_index_data : Dictionary):
 	self.item_name_data = item_name_data
@@ -58,13 +57,13 @@ func _process(delta):
 		if(fade_amount <= 0):
 			fading_in = false
 			fading_out = false
-			can_move = true
+			clear_move_flag(Definitions.InCutscene)
 			emit_signal("fade_done")
 			
 func start_fade():
 	fading_in = true
 	fading_out = false
-	can_move = false
+	set_move_flag(Definitions.InCutscene)
 	
 	
 func move_in_direction(dir : Vector2, speed : int):
@@ -79,8 +78,14 @@ func move_in_direction(dir : Vector2, speed : int):
 	last_moved = OS.get_system_time_msecs()
 	pass
 	
-func set_move_state(can : bool):
-	can_move = can
+func set_move_flag(flag : int):
+	movement_flags |= flag
+	
+func clear_move_flag(flag : int):
+	movement_flags &= ~flag
+	
+func move_flag_set(flag : int):
+	return (movement_flags & flag > 0)
 
 func _physics_process(delta):
 	if(selected_item != "" and selected_item != null):
@@ -91,23 +96,25 @@ func _physics_process(delta):
 		equipped_label.visible = false
 		equipped_rect.visible = false
 	equipped_rect.rect_size = equipped_label.rect_size + Vector2(10,10)
+	if(move_flag_set(Definitions.InCutscene | Definitions.MessageBox)):
+		return
 	if(Input.get_action_strength("inventory") > 0 and not inv_button_held):
 		inv_button_held = true
-		if(inventory_open):
+		if(move_flag_set(Definitions.Inventory)):
 			get_node("../Inventory").active = false
-			inventory_open = false
+			clear_move_flag(Definitions.Inventory)
 		else:
 			var items : PoolStringArray
 			for i in range(inventory.size()):
 				items.append(inventory[i])
 			get_node("../Inventory").current_items = items
 			get_node("../Inventory").show()
-			inventory_open = true
+			set_move_flag(Definitions.Inventory)
 			_deequip()
 	elif(Input.get_action_strength("inventory") == 0):
 		inv_button_held = false
 	
-	if(!can_move || inventory_open):
+	if(move_flag_set(Definitions.Inventory)):
 		return
 	if(Input.get_action_strength("up") > 0) :
 		player_sprite.play("walking_forward")
@@ -168,4 +175,4 @@ func select_item(id):
 	if(inventory.size() > id):
 		selected_item = inventory[id]
 	_show_message("equip_item", {"item": item_name_data[selected_item]})
-	inventory_open = false
+	clear_move_flag(Definitions.Inventory)

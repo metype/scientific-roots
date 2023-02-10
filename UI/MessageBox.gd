@@ -19,6 +19,7 @@ var progression_in_text = 0
 var progression_speed = 1
 var active = false
 var held_interact = true
+var held_backspace = false
 
 var input_text = ""
 var texture_to_display : Texture
@@ -67,8 +68,11 @@ func _process(delta):
 				
 		input_text_area.text = input_text
 				
-		if(Input.is_key_pressed(8) and input_text.length() > 0):
-				input_text = input_text.rstrip(1)
+		if(Input.is_physical_key_pressed(KEY_BACKSPACE) and input_text.length() > 0 and not held_backspace):
+			input_text = input_text.substr(0, input_text.length() - 1)
+			held_backspace = true
+		elif(not Input.is_physical_key_pressed(KEY_BACKSPACE)):
+			held_backspace = false
 				
 		if(Input.get_action_strength("interact") > 0 && not held_interact):
 			emit_signal("input_tried", input_text, messages[message_pointer].substr(7,messages[message_pointer].length()-7))

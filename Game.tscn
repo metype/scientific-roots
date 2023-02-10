@@ -14,8 +14,7 @@ script = ExtResource( 2 )
 [node name="Level" type="Node" parent="."]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-movement_speed = 567
-movement_delay = 40
+movement_speed = 225
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true

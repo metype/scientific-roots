@@ -1,10 +1,10 @@
 [gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Media/Sprite-0002.png" type="Texture" id=2]
+[ext_resource path="res://Media/UI/Sprite-0002.png" type="Texture" id=2]
 [ext_resource path="res://Player/character_sheet.png" type="Texture" id=3]
-[ext_resource path="res://Media/Minecraft.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Media/drone buddy holly.wav" type="AudioStream" id=5]
+[ext_resource path="res://Media/Resources/Minecraft.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Media/Audio/Music/drone buddy holly.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.71429, 11.4286 )
@@ -125,6 +125,8 @@ font_data = ExtResource( 4 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
+movement_speed = 12
+movement_delay = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 1.19209e-07, 2 )
