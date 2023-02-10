@@ -1,4 +1,6 @@
 extends TextureRect
+class_name MessageBox
+
 export (PoolIntArray) var skippable
 export (PoolStringArray) var messages
 export (PoolStringArray) var names

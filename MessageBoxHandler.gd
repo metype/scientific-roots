@@ -3,9 +3,9 @@ export (NodePath) var camera
 export (NodePath) var playerPath
 
 onready var cameraPos : Node2D = get_node(camera)
-onready var player : Node2D = get_node(playerPath)
+onready var player : Player = get_node(playerPath)
 
-onready var messageBox = $MessageBox
+onready var messageBox : MessageBox = $MessageBox
 
 var messages : Dictionary
 

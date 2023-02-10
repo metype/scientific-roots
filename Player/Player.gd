@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 export (int) var movement_speed = 24
 export (int) var movement_delay = 70
