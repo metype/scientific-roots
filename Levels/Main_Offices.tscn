@@ -44,7 +44,7 @@ fill_from = Vector2( 0, 1 )
 fill_to = Vector2( 0, 0 )
 
 [sub_resource type="RectangleShape2D" id=27]
-extents = Vector2( 77, 39 )
+extents = Vector2( 30, 134.5 )
 
 [sub_resource type="RectangleShape2D" id=29]
 extents = Vector2( 75, 10 )
@@ -630,7 +630,7 @@ new_item_id = "chem_d"
 key = "safe"
 
 [node name="Start" type="Node2D" parent="."]
-position = Vector2( -600, 408 )
+position = Vector2( -744, 408 )
 
 [node name="LevelEnd" type="Area2D" parent="."]
 position = Vector2( -118, 412 )
@@ -674,8 +674,10 @@ color = Color( 0, 0, 0, 1 )
 position = Vector2( 0, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( -701, 403 )
+position = Vector2( -758, 404 )
+rotation = 1.5708
 shape = SubResource( 27 )
+one_way_collision = true
 
 [node name="ReadableDoor" parent="." instance=ExtResource( 3 )]
 position = Vector2( 10, 70 )
@@ -745,6 +747,7 @@ script = ExtResource( 19 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Node2D"]
 shape = SubResource( 29 )
+disabled = true
 
 [node name="DecalGingerRootLarge" type="Sprite" parent="Node2D/CollisionShape2D"]
 texture = ExtResource( 18 )

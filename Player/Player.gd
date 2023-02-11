@@ -17,8 +17,8 @@ var fading_in = false
 var fading_out = false
 
 var last_moved = 0
-var facing_v : int
-var facing_h : int
+var facing_dir : Vector2 = Vector2(0,0)
+var pre_facing_dir : Vector2 = Vector2(0,0)
 var interacted = false
 
 var interactObject : Node2D = null
@@ -72,8 +72,7 @@ func move_in_direction(dir : Vector2, speed : int, change_facing : bool = true):
 		return
 	
 	if(change_facing):
-		facing_v = dir.x
-		facing_h = dir.y
+		facing_dir = dir
 	
 	move_and_slide(dir * speed)
 		
@@ -90,30 +89,29 @@ func move_flag_set(flag : int):
 	return (movement_flags & flag > 0)
 	
 func go_to_stand():
-	if facing_h == 1:
+	if pre_facing_dir.y > 0:
 		player_sprite.play("standing_back")
-	if facing_h == -1:
+	if pre_facing_dir.y < 0:
 		player_sprite.play("standing_forward")
-	if facing_v == 1:
+	if pre_facing_dir.x > 0:
 		player_sprite.play("standing_right")
-	if facing_v == -1:
+	if pre_facing_dir.x < 0:
 		player_sprite.play("standing_left")
 		
 func keep_moving():
-	if(facing_h == -1) :
+	if(facing_dir.length() > 0):
+		pre_facing_dir = facing_dir
+	if (facing_dir.y < 0):
 		player_sprite.play("walking_forward")
-		move_in_direction(Vector2(0, -1), movement_speed, false)
-	elif(facing_h == 1) :
+	elif (facing_dir.y > 0):
 		player_sprite.play("walking_back")
-		move_in_direction(Vector2(0, 1), movement_speed, false)
-	elif(facing_v == -1) :
+	elif (facing_dir.x < 0):
 		player_sprite.play("walking_left")
-		move_in_direction(Vector2(-1, 0), movement_speed, false)
-	elif(facing_v == 1) :
+	elif (facing_dir.x > 0):
 		player_sprite.play("walking_right")
-		move_in_direction(Vector2(1, 0), movement_speed, false)
 	else:
 		go_to_stand()
+	move_in_direction(facing_dir, movement_speed, false)
 
 func _physics_process(delta):
 	if(selected_item != "" and selected_item != null):
@@ -149,20 +147,21 @@ func _physics_process(delta):
 	if(move_flag_set(Definitions.Inventory)):
 		go_to_stand()
 		return
+		
+	var move_dir : Vector2 = Vector2(0,0)
+	
 	if(Input.get_action_strength("up") > 0) :
-		player_sprite.play("walking_forward")
-		move_in_direction(Vector2(0, -1), movement_speed)
-	elif(Input.get_action_strength("down") > 0) :
-		player_sprite.play("walking_back")
-		move_in_direction(Vector2(0, 1), movement_speed)
-	elif(Input.get_action_strength("left") > 0) :
-		player_sprite.play("walking_left")
-		move_in_direction(Vector2(-1, 0), movement_speed)
-	elif(Input.get_action_strength("right") > 0) :
-		player_sprite.play("walking_right")
-		move_in_direction(Vector2(1, 0), movement_speed)
-	else:
-		go_to_stand()
+		move_dir += Vector2(0, -1)
+	if(Input.get_action_strength("down") > 0) :
+		move_dir += Vector2(0, 1)
+	if(Input.get_action_strength("left") > 0) :
+		move_dir += Vector2(-1, 0)
+	if(Input.get_action_strength("right") > 0) :
+		move_dir += Vector2(1, 0)
+		
+	facing_dir = move_dir.normalized()
+	
+	keep_moving()
 	
 	if(Input.get_action_strength("interact") > 0 and not interacted) :
 		interacted = true

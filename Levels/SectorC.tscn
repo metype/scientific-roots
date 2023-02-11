@@ -39,7 +39,7 @@ fill_from = Vector2( 0, 1 )
 fill_to = Vector2( 0, 0 )
 
 [sub_resource type="RectangleShape2D" id=34]
-extents = Vector2( 57.5, 43 )
+extents = Vector2( 85.5, 74.5 )
 
 [sub_resource type="RectangleShape2D" id=35]
 extents = Vector2( 38, 43 )
@@ -171,7 +171,7 @@ position = Vector2( -675, -333 )
 texture = ExtResource( 8 )
 
 [node name="Start" type="Node2D" parent="."]
-position = Vector2( 742, 235 )
+position = Vector2( 742, 75 )
 
 [node name="Abyss" type="TextureRect" parent="."]
 margin_left = 857.0
@@ -209,14 +209,16 @@ color = Color( 0, 0, 0, 1 )
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 743.5, 105.5 )
+position = Vector2( 743, 75 )
+rotation = 3.14159
 shape = SubResource( 34 )
+one_way_collision = true
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2( 242, 535 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2( 747, 109 )
+position = Vector2( 721.5, 112.5 )
 shape = SubResource( 34 )
 
 [node name="DecalOvergrowth11" type="Sprite" parent="StaticBody2D2/CollisionShape2D"]

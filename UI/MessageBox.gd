@@ -28,6 +28,8 @@ var texture_to_display : Texture
 
 var invalidKeys = []
 
+var parsed_message_data : Dictionary = {}
+
 func set_active():
 	active = true
 	message_pointer = 0
@@ -35,6 +37,17 @@ func set_active():
 	
 func cancel():
 	active = false
+	
+func parse_message():
+	var parsing_regex : RegEx = RegEx.new()
+	parsing_regex.compile("\"[^\"]+\"|[^\\s]+")
+	var testing_regex : RegEx = RegEx.new()
+	testing_regex.compile("^\\[.*\\]$")
+	if(testing_regex.search(messages[message_pointer])):
+		var results = []
+		for result in parsing_regex.search_all(messages[message_pointer]):
+			results.push_back(result.get_string())
+
 
 func _process(delta):
 	if not active:
