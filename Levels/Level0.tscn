@@ -109,4 +109,4 @@ margin_right = 213.0
 margin_bottom = 334.0
 color = Color( 0, 0, 0, 1 )
 
-[connection signal="body_entered" from="LevelEnd" to="." method="_on_LevelEnd_body_entered" binds= [ "Level1" ]]
+[connection signal="body_entered" from="LevelEnd" to="." method="_on_LevelEnd_body_entered" binds= [ "Level1", Vector2( 1, 0 ) ]]

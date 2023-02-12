@@ -7,19 +7,19 @@ export (float) var fade_speed = 1.5
 
 onready var InteractToolTip = $InteractTooltip
 onready var player_sprite : AnimatedSprite = $AnimatedSprite
-onready var equipped_label = $ColorRect/Label
-onready var equipped_rect = $ColorRect
+onready var equipped_label : Label = $ColorRect/Label
+onready var equipped_rect : ColorRect = $ColorRect
 onready var fade_rect : ColorRect = $ColorRect2
 
-var fade_amount = 0
+var fade_amount : float = 0
 
-var fading_in = false
-var fading_out = false
+var fading_in : bool = false
+var fading_out : bool = false
 
-var last_moved = 0
+var last_moved : float = 0
 var facing_dir : Vector2 = Vector2(0,0)
 var pre_facing_dir : Vector2 = Vector2(0,0)
-var interacted = false
+var interacted : bool = false
 
 var interactObject : Node2D = null
 
@@ -59,12 +59,12 @@ func _process(delta):
 			fading_in = false
 			fading_out = false
 			emit_signal("fade_done")
-			clear_move_flag(Definitions.InCutscene)
+			clear_move_flag(Definitions.InFade)
 			
 func start_fade():
 	fading_in = true
 	fading_out = false
-	set_move_flag(Definitions.InCutscene)
+	set_move_flag(Definitions.InFade)
 	
 	
 func move_in_direction(dir : Vector2, speed : int, change_facing : bool = true):
@@ -122,10 +122,10 @@ func _physics_process(delta):
 		equipped_label.visible = false
 		equipped_rect.visible = false
 	equipped_rect.rect_size = equipped_label.rect_size + Vector2(10,10)
-	if(move_flag_set(Definitions.InCutscene)):
+	if(move_flag_set(Definitions.InFade)):
 		keep_moving()
 		return
-	if(move_flag_set(Definitions.MessageBox)):
+	if(move_flag_set(Definitions.MessageBox | Definitions.InCutscene)):
 		go_to_stand()
 		return
 	if(Input.get_action_strength("inventory") > 0 and not inv_button_held):
@@ -185,6 +185,9 @@ func _object_left(body):
 		
 func _show_message(path : String, format_dict = {}):
 	get_node("../MessageBoxHandler").display_message(path, format_dict)
+	
+func _play_cutscene(path : String):
+	get_node("../CutsceneHandler")._enqueue_cutscene(path)
 			  
 func _give_item(id : String):
 	_show_message("recieve_item", {"item": item_name_data[id]})

@@ -1,4 +1,6 @@
 extends Node2D
+class_name MessageBoxHandler
+
 export (NodePath) var camera
 export (NodePath) var playerPath
 
@@ -54,3 +56,7 @@ func _process(delta):
 func display_message(message_path : String, format_dict = null):
 	messageQueue.append(message_path)
 	messageQueue.append(format_dict)
+
+
+func _on_MessageBox_cutscene_box_closed():
+	get_node("../CutsceneHandler")._message_box_closed()

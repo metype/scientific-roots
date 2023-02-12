@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Game.gd" type="Script" id=2]
 [ext_resource path="res://MessageBoxHandler.gd" type="Script" id=3]
 [ext_resource path="res://UI/MessageBox.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/Inventory.tscn" type="PackedScene" id=5]
+[ext_resource path="res://CutsceneHandler.gd" type="Script" id=6]
+[ext_resource path="res://Media/Audio/Music/drone buddy holly.wav" type="AudioStream" id=7]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 2 )
@@ -19,6 +21,10 @@ movement_speed = 225
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player/Camera2D"]
+stream = ExtResource( 7 )
+autoplay = true
+
 [node name="MessageBoxHandler" type="Node2D" parent="."]
 script = ExtResource( 3 )
 camera = NodePath("../Player/Camera2D")
@@ -30,7 +36,13 @@ playerPath = NodePath("../Player")
 position = Vector2( -401, -301 )
 camera = NodePath("../Player/Camera2D")
 
+[node name="CutsceneHandler" type="Node2D" parent="."]
+script = ExtResource( 6 )
+cameraNodePath = NodePath("../Player/Camera2D")
+playerNodePath = NodePath("../Player")
+
 [connection signal="fade_black" from="Player" to="." method="_on_Player_fade_black"]
+[connection signal="cutscene_box_closed" from="MessageBoxHandler/MessageBox" to="MessageBoxHandler" method="_on_MessageBox_cutscene_box_closed"]
 [connection signal="end" from="MessageBoxHandler/MessageBox" to="." method="_on_MessageBox_end"]
 [connection signal="input_tried" from="MessageBoxHandler/MessageBox" to="." method="_on_MessageBox_input_tried"]
 [connection signal="item_selected" from="Inventory" to="Player" method="select_item"]

@@ -5,6 +5,9 @@ export (int) var speed
 export (String) var desired_object
 export (String) var key_name
 export (bool) var remove_item
+export (Texture) var door_texture
+
+onready var texture_rect : TextureRect = $TextureRect
 
 var opening = false
 
@@ -14,6 +17,8 @@ var default_pos
 
 func _ready():
 	default_pos = position
+	if(door_texture != null):
+		texture_rect.texture = door_texture
 
 func _process(_delta):
 	if(opening):

@@ -2,10 +2,9 @@ extends Node2D
 
 var attached = false
 
-var answers : Dictionary = {"puzzle1_door" : "41118", "locker_room_door" : "247", "vinegar_door" : "38310", "clean_room_door" : "5061", "chem_room_door" : "55517"}
-
-onready var player = $Player
+onready var player : Player = $Player
 onready var inventory = $Inventory
+onready var message_box_handler : MessageBoxHandler = $MessageBoxHandler
 
 var next_level = ""
 
@@ -51,9 +50,10 @@ var item_name_data : Dictionary = {
  "corrosive": "Corrosive"
 }
 
-func change_level(new_level : String):
+func change_level(new_level : String, facing_dir : Vector2):
 	next_level = new_level
 	player.start_fade()
+	player.move_in_direction(facing_dir, 0)
 	push_action("load_level")
 	
 func push_action(action : String):
@@ -76,12 +76,12 @@ func _process(_delta):
 		get_node("Level").connected()
 
 
-func _on_MessageBox_input_tried(input: String, id : String):
-	if(answers[id] == input):
+func _on_MessageBox_input_tried(input: String, answer : String, id : String):
+	if(answer == input):
 		get_node("Level").input_success(id)
-		get_node("MessageBoxHandler").display_message(id+"_success")
+		message_box_handler.display_message(id+"_success")
 	else:
-		get_node("MessageBoxHandler").display_message(id+"_failure")
+		message_box_handler.display_message(id+"_failure")
 
 
 func _on_MessageBox_end():

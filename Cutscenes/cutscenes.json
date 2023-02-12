@@ -1,0 +1,16 @@
+{
+    "hole_in_floor": [
+        {
+            "ends_after" : "1000",
+            "end_camera_pos" : "650,player"
+        },
+        {
+            "ends_after" : "500",
+            "shown_message" : "hole_in_floor"
+        },
+        {
+            "ends_after" : "1000",
+            "end_camera_pos" : "player"
+        }
+    ]
+}

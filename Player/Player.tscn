@@ -1,10 +1,9 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Media/UI/Sprite-0002.png" type="Texture" id=2]
 [ext_resource path="res://Player/character_sheet.png" type="Texture" id=3]
 [ext_resource path="res://Media/Resources/Minecraft.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Media/Audio/Music/drone buddy holly.wav" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 7.71429, 11.4286 )
@@ -177,10 +176,6 @@ margin_top = -319.0
 margin_right = 445.0
 margin_bottom = 326.0
 color = Color( 0, 0, 0, 1 )
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 5 )
-autoplay = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_object_close"]
 [connection signal="body_exited" from="Area2D" to="." method="_object_left"]

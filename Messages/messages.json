@@ -11,6 +11,13 @@
             "skip" : 1
         }
     ],
+    "parse_test": [
+        {
+            "name" : "Test!",
+            "text" : "[type='text' message='Hello, world!']",
+            "skip" : 0
+        }
+    ],
     "equip_item": [
         {
             "name" : "Game",
@@ -42,24 +49,14 @@
     "periodic_table": [
         {
             "name" : "Periodic Table",
-            "text" : "It's the Periodic Table of the Elements.",
-            "skip" : 1
-        },
-        {
-            "name" : "Periodic Table",
-            "text" : "[image]periodic_table",
+            "text" : "[type='image' message='The Periodic Table of the Elements' image_path='periodic_table']",
             "skip" : 1
         }
     ],
     "puzzle1_door": [
         {
             "name" : "Door",
-            "text" : "The door is locked, but there's a keypad here to input numbers on",
-            "skip" : 1
-        },
-        {
-            "name" : "Door",
-            "text" : "[input]puzzle1_door",
+            "text" : "[type='input' message='The door is locked, but there is a keypad here to input numbers on' input_id='puzzle1_door' input_key='41118' input_length='5']",
             "skip" : 1
         }
     ],
@@ -178,12 +175,7 @@
     "locker_room_door": [
         {
             "name" : "Door",
-            "text" : "The door is locked, but there's a keypad here to input numbers on",
-            "skip" : 1
-        },
-        {
-            "name" : "Door",
-            "text" : "[input]locker_room_door",
+            "text" : "[type='input' message='The door is locked, but there is a keypad here to input numbers on' input_id='locker_room_door' input_key='247' input_length='3']",
             "skip" : 1
         }
     ],
@@ -358,12 +350,7 @@
     "vinegar_door": [
         {
             "name" : "Door",
-            "text" : "The door is locked, but there's a keypad here to input numbers on",
-            "skip" : 1
-        },
-        {
-            "name" : "Door",
-            "text" : "[input]vinegar_door",
+            "text" : "[type='input' message='The door is locked, but there is a keypad here to input numbers on' input_id='vinegar_door' input_key='38310' input_length='5']",
             "skip" : 1
         }
     ],
@@ -417,12 +404,12 @@
     "note_hint_5": [
         {
             "name" : "Board",
-            "text" : "There's a note pinned to the board.",
+            "text" : "There's a piece of paper thumbtacked to this board.",
             "skip" : 1
         },
         {
             "name" : "Note",
-            "text" : "I think this is a lovely idea, to hell with Security!.\nDigit five is 0\n\n   -Signed Ron",
+            "text" : "I think this is an amazing idea! To hell with security!\nThe fith and final digit is a 0\n\n-Ron",
             "skip" : 1
         }
     ],
@@ -450,12 +437,7 @@
     "clean_room_door": [
         {
             "name" : "Door",
-            "text" : "The door is locked, but there's a keypad here to input numbers on",
-            "skip" : 1
-        },
-        {
-            "name" : "Door",
-            "text" : "[input]clean_room_door",
+            "text" : "[type='input' message='The door is locked, but there is a keypad here to input numbers on' input_id='clean_room_door' input_key='5061' input_length='4']",
             "skip" : 1
         }
     ],
@@ -548,12 +530,7 @@
     "chem_room_door": [
         {
             "name" : "Door",
-            "text" : "The door is locked, but there's a keypad here to input numbers on",
-            "skip" : 1
-        },
-        {
-            "name" : "Door",
-            "text" : "[input]chem_room_door",
+            "text" : "[type='input' message='The door is locked, but there is a keypad here to input numbers on' input_id='chem_room_door' input_key='55517' input_length='5']",
             "skip" : 1
         }
     ],
@@ -644,7 +621,7 @@
         },
         {
             "name" : "Note",
-            "text" : "[end]",
+            "text" : "[type='end']",
             "skip" : 1
         }
     ],
@@ -662,6 +639,14 @@
             "name" : "Door",
             "text" : "The keycard opened the door with its mere presence...\n\ninside the card reader.",
             "skip" : 1
+        }
+    ],
+    "hole_in_floor":
+    [
+        {
+            "name" : "Drake",
+            "text" : "Oh dear, looks like I'll need to get across that hole somehow.",
+            "skip" : 2
         }
     ]
 }

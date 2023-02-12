@@ -9,10 +9,20 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node",
+"class": "CutsceneHandler",
+"language": "GDScript",
+"path": "res://CutsceneHandler.gd"
+}, {
 "base": "TextureRect",
 "class": "MessageBox",
 "language": "GDScript",
 "path": "res://UI/MessageBox.gd"
+}, {
+"base": "Node2D",
+"class": "MessageBoxHandler",
+"language": "GDScript",
+"path": "res://MessageBoxHandler.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Player",
@@ -20,7 +30,9 @@ _global_script_classes=[ {
 "path": "res://Player/Player.gd"
 } ]
 _global_script_class_icons={
+"CutsceneHandler": "",
 "MessageBox": "",
+"MessageBoxHandler": "",
 "Player": ""
 }
 

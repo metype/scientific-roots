@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/periodic_table.png-f949bd03aaf23f402b8e4714be3b6bea.stex"
+path="res://.import/door_depth.png-5b16b1680a5374cd10e92b0a67e38c8c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Media/UI/periodic_table.png"
-dest_files=[ "res://.import/periodic_table.png-f949bd03aaf23f402b8e4714be3b6bea.stex" ]
+source_file="res://Media/Decals/door_depth.png"
+dest_files=[ "res://.import/door_depth.png-5b16b1680a5374cd10e92b0a67e38c8c.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
