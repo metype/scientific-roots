@@ -110,7 +110,8 @@ rotation = 1.5708
 [node name="Readable" parent="TileMap/Door4" instance=ExtResource( 3 )]
 position = Vector2( 19.3984, 14.6268 )
 scale = Vector2( -0.231, 0.619 )
-text_path = "stuck_door"
+text_path = "not_a_secret_ending"
+one_shot = true
 
 [node name="Door8" parent="TileMap" instance=ExtResource( 4 )]
 position = Vector2( -58, 490 )
