@@ -1,8 +1,7 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Media/Resources/lab.tres" type="TileSet" id=1]
 [ext_resource path="res://Levels/Level.gd" type="Script" id=2]
-[ext_resource path="res://Objects/Readable.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Media/Decals/door_depth.png" type="Texture" id=4]
 [ext_resource path="res://Media/Decals/wasd.png" type="Texture" id=5]
 [ext_resource path="res://Objects/Getitem.tscn" type="PackedScene" id=6]
@@ -64,6 +63,8 @@ texture = ExtResource( 5 )
 [node name="GetItem" parent="." instance=ExtResource( 6 )]
 position = Vector2( 269, 524 )
 scale = Vector2( 0.174, 0.655 )
+collision_layer = 4
+collision_mask = 4
 item_id = "sector_b_keycard"
 destroy = true
 
@@ -71,11 +72,6 @@ destroy = true
 position = Vector2( 57.4713, -1.52673 )
 scale = Vector2( 5.74713, 1.52672 )
 texture = ExtResource( 7 )
-
-[node name="Readable" parent="." instance=ExtResource( 3 )]
-position = Vector2( 384, 687 )
-scale = Vector2( 0.351, 0.233 )
-text_path = "whiteboard_puzzle1"
 
 [node name="Start" type="Node2D" parent="."]
 position = Vector2( 216, 864 )

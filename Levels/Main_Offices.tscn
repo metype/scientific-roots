@@ -51,7 +51,7 @@ extents = Vector2( 24, 24 )
 extents = Vector2( 23.5, 23.5 )
 
 [sub_resource type="RectangleShape2D" id=20]
-extents = Vector2( 118, 86.5 )
+extents = Vector2( 104, 86.5 )
 
 [sub_resource type="Gradient" id=26]
 interpolation_mode = 2
@@ -99,7 +99,7 @@ scale = Vector2( -0.231, 0.619 )
 text_path = "stuck_door"
 
 [node name="Readable2" parent="TileMap/Door2" instance=ExtResource( 3 )]
-position = Vector2( 397.421, 14.8889 )
+position = Vector2( 14, 389 )
 scale = Vector2( 0.304, 0.72 )
 text_path = "stuck_door"
 
@@ -220,6 +220,8 @@ texture = ExtResource( 16 )
 [node name="Readable" parent="TileMap" instance=ExtResource( 3 )]
 position = Vector2( -119, -1470 )
 scale = Vector2( 0.284, 0.493 )
+collision_layer = 4
+collision_mask = 4
 text_path = "read_clock"
 
 [node name="DecalOvergrowth3" type="Sprite" parent="TileMap"]
@@ -532,11 +534,15 @@ tile_data = PoolIntArray( -2097132, 536870963, 0, -2097131, 536870961, 0, -20971
 [node name="Readable" parent="TileMap2" instance=ExtResource( 3 )]
 position = Vector2( 220, 462 )
 scale = Vector2( 0.093, 0.689 )
+collision_layer = 4
+collision_mask = 4
 text_path = "bulletin_board1"
 
 [node name="ItemTrade" parent="TileMap2" instance=ExtResource( 9 )]
 position = Vector2( 2318, 680 )
 scale = Vector2( 0.281, 0.447 )
+collision_layer = 4
+collision_mask = 4
 used_item_id = "cabinet_key"
 new_item_id = "guard_key"
 key = "cabinet1"
@@ -544,6 +550,8 @@ key = "cabinet1"
 [node name="GetItem" parent="TileMap2" instance=ExtResource( 5 )]
 position = Vector2( 1430, 680 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 4
 item_id = "rusty_key"
 destroy = true
 
@@ -555,18 +563,24 @@ texture = ExtResource( 11 )
 [node name="GetItem6" parent="TileMap2" instance=ExtResource( 5 )]
 position = Vector2( -1128, -985 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 4
 item_id = "corrosive"
 destroy = true
 
 [node name="GetItem7" parent="TileMap2" instance=ExtResource( 5 )]
 position = Vector2( -1305, -961 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 4
 item_id = "chem_c"
 destroy = true
 
 [node name="GetItem2" parent="TileMap2" instance=ExtResource( 5 )]
 position = Vector2( 1463, 489 )
 scale = Vector2( 0.5, 0.5 )
+collision_layer = 4
+collision_mask = 4
 item_id = "cabinet_key"
 destroy = true
 
@@ -582,11 +596,13 @@ texture = ExtResource( 12 )
 [node name="Readable2" parent="TileMap2" instance=ExtResource( 3 )]
 position = Vector2( 1404, 806 )
 scale = Vector2( 0.118, 0.368 )
+collision_layer = 4
 text_path = "rusty_key_note"
 
 [node name="ItemTrade2" parent="TileMap2" instance=ExtResource( 9 )]
 position = Vector2( 1943, -1520 )
 scale = Vector2( 0.281, 0.447 )
+collision_layer = 4
 used_item_id = "rusty_key"
 new_item_id = "break_room_key"
 key = "vinegar"
@@ -594,10 +610,14 @@ destroy = true
 
 [node name="Button" parent="TileMap2" instance=ExtResource( 13 )]
 position = Vector2( 1693, -519 )
+collision_layer = 4
+collision_mask = 4
 
 [node name="Readable3" parent="TileMap2" instance=ExtResource( 3 )]
 position = Vector2( 1729, -972 )
 scale = Vector2( 0.46, 0.547 )
+collision_layer = 4
+collision_mask = 4
 text_path = "note_hint_5"
 
 [node name="Paper-note-bloody" type="Sprite" parent="TileMap2"]
@@ -639,11 +659,15 @@ texture = ExtResource( 12 )
 [node name="Readable" parent="TileMap2/Paper-note9" instance=ExtResource( 3 )]
 position = Vector2( 0, -1 )
 scale = Vector2( 0.124, 0.426 )
+collision_layer = 4
+collision_mask = 4
 text_path = "bleach_directions"
 
 [node name="GetItem3" parent="TileMap2" instance=ExtResource( 5 )]
 position = Vector2( -296, 649 )
 scale = Vector2( 0.123, 0.876 )
+collision_layer = 4
+collision_mask = 4
 item_id = "sector_a_keycard"
 destroy = true
 
@@ -655,6 +679,8 @@ texture = ExtResource( 15 )
 [node name="GetItem4" parent="TileMap2" instance=ExtResource( 5 )]
 position = Vector2( -1133, -1252 )
 scale = Vector2( 0.151, 1 )
+collision_layer = 4
+collision_mask = 4
 preamble = "chem_a_locker"
 item_id = "chem_a"
 destroy = true
@@ -663,6 +689,8 @@ destroy = true
 position = Vector2( -936, -1231 )
 rotation = 1.52891
 scale = Vector2( 0.151, 1 )
+collision_layer = 4
+collision_mask = 4
 used_item_id = "knife"
 new_item_id = "hammer"
 key = "box1"
@@ -672,6 +700,8 @@ destroy = true
 position = Vector2( -743, -1387 )
 rotation = 1.52891
 scale = Vector2( 0.151, 1 )
+collision_layer = 4
+collision_mask = 4
 used_item_id = "hammer"
 new_item_id = "chem_b"
 key = "chem_b_locker"
@@ -681,6 +711,8 @@ destroy = true
 position = Vector2( -1123, -1386 )
 rotation = 1.52891
 scale = Vector2( 0.151, 1 )
+collision_layer = 4
+collision_mask = 4
 preamble = "knife_locker"
 item_id = "knife"
 destroy = true
@@ -688,6 +720,8 @@ destroy = true
 [node name="Readable5" parent="TileMap2" instance=ExtResource( 3 )]
 position = Vector2( -769, -979 )
 scale = Vector2( 0.273, 0.475 )
+collision_layer = 4
+collision_mask = 4
 text_path = "periodic_table"
 
 [node name="Paper-note-bloody2" type="Sprite" parent="TileMap2"]
@@ -698,6 +732,8 @@ flip_h = true
 [node name="Readable4" parent="TileMap2/Paper-note-bloody2" instance=ExtResource( 3 )]
 position = Vector2( -8, -2 )
 scale = Vector2( 0.273, 0.475 )
+collision_layer = 4
+collision_mask = 4
 text_path = "chem_puzzle_note"
 
 [node name="TileMap3" type="TileMap" parent="."]
@@ -709,11 +745,15 @@ tile_data = PoolIntArray( -2162651, 128, 0, -2162649, 128, 0, -2162647, 128, 0, 
 [node name="Readable" parent="TileMap3" instance=ExtResource( 3 )]
 position = Vector2( 233, 296 )
 scale = Vector2( 0.093, 0.27 )
+collision_layer = 4
+collision_mask = 4
 text_path = "microwave1"
 
 [node name="ItemTrade" parent="TileMap3" instance=ExtResource( 9 )]
 position = Vector2( -1020, -923 )
 scale = Vector2( 0.325, 0.514 )
+collision_layer = 4
+collision_mask = 4
 used_item_id = "corrosive"
 new_item_id = "chem_d"
 key = "safe"
@@ -725,7 +765,7 @@ position = Vector2( -744, 408 )
 position = Vector2( -118, 412 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelEnd"]
-position = Vector2( 46, 712 )
+position = Vector2( 51, 712 )
 shape = SubResource( 20 )
 
 [node name="Abyss" type="TextureRect" parent="."]
@@ -771,6 +811,8 @@ one_way_collision = true
 [node name="GetItem" parent="." instance=ExtResource( 5 )]
 position = Vector2( 368.526, 126 )
 scale = Vector2( 0.088, 0.177 )
+collision_layer = 4
+collision_mask = 4
 item_id = "sector_b_keycard"
 destroy = true
 
@@ -794,32 +836,44 @@ texture = ExtResource( 12 )
 [node name="Readable" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2820, -1522 )
 scale = Vector2( 0.198, 0.745 )
+collision_layer = 4
+collision_mask = 4
 text_path = "note_hint_3"
 
 [node name="Readable" parent="Readable" instance=ExtResource( 3 )]
 position = Vector2( -6181.82, 504.699 )
 scale = Vector2( 1, 0.378 )
+collision_layer = 4
+collision_mask = 4
 text_path = "note_hint_2"
 
 [node name="Readable2" parent="." instance=ExtResource( 3 )]
 position = Vector2( 2341, -988 )
 scale = Vector2( 0.172, 0.684 )
+collision_layer = 4
+collision_mask = 4
 text_path = "note_hint_1"
 
 [node name="Readable3" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1021, -1206 )
 scale = Vector2( 0.176, 0.651 )
+collision_layer = 4
+collision_mask = 4
 text_path = "note_hint_4"
 
 [node name="GetItem2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1990, 17 )
 scale = Vector2( 0.46, 0.567 )
+collision_layer = 4
+collision_mask = 4
 preamble = "make_coffee"
 item_id = "coffee"
 destroy = true
 
 [node name="Bleachinator" parent="." instance=ExtResource( 17 )]
 position = Vector2( -1560, -1272 )
+collision_layer = 4
+collision_mask = 4
 key = "bleachinator"
 
 [node name="Node2D" type="StaticBody2D" parent="."]

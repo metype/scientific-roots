@@ -46,11 +46,15 @@ tile_data = PoolIntArray( 655353, 20, 0, 655354, 21, 0, 917511, 18, 0, 917512, 1
 [node name="Readable" parent="." instance=ExtResource( 3 )]
 position = Vector2( 384, 687 )
 scale = Vector2( 0.351, 0.233 )
+collision_layer = 4
+collision_mask = 4
 text_path = "whiteboard_puzzle1"
 
 [node name="Readable2" parent="." instance=ExtResource( 3 )]
 position = Vector2( -290, 457 )
 scale = Vector2( 0.351, 0.233 )
+collision_layer = 4
+collision_mask = 4
 text_path = "periodic_table"
 
 [node name="ReadableDoor" parent="." instance=ExtResource( 3 )]
